@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        {% if title %}
+        <title>{{ title }} - Achievex</title>
+        {% else %}
+        <title>Achievex</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            <a href="/index">Home</a>
+        </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

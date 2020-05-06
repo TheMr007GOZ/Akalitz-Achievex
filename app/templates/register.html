@@ -1,0 +1,50 @@
+{% extends "app.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="card mb-3 mt-5" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <h5 class="card-title">Registro</h5>
+                        <form action="" method="post">
+                            {{ form.hidden_tag() }}
+                            <p>
+                                {{ form.username.label }}<br>
+                                {{ form.username(size=32) }}<br>
+                                {% for error in form.username.errors %}
+                                <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </p>
+                            <p>
+                                {{ form.email.label }}<br>
+                                {{ form.email(size=48) }}<br>
+                                {% for error in form.email.errors %}
+                                <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </p>
+                            <p>
+                                {{ form.password.label }}<br>
+                                {{ form.password(size=32) }}<br>
+                                {% for error in form.password.errors %}
+                                <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </p>
+                            <p>
+                                {{ form.password2.label }}<br>
+                                {{ form.password2(size=32) }}<br>
+                                {% for error in form.password2.errors %}
+                                <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </p>
+                            <p>{{ form.submit() }}</p>
+                        </form>
+                        <p>¿Ya tienes cuenta? <a href="{{ url_for('login') }}">¡Click para ingresar!</a></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

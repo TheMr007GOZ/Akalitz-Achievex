@@ -1,0 +1,36 @@
+{% extends "app.html" %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container" style="margin-top: 100px;">
+        <div class="row justify-content-md-center">
+            <div class="card mb-3 mt-5" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h5 class="card-title">Nuevo Logro</h5>
+                            <form action="" method="post">
+                                {{ form.hidden_tag() }}
+                                <p>
+                                    {{ form.nombre.label }}
+                                    {{ form.nombre(size=32) }}
+                                    {% for error in form.nombre.errors %}
+                                    <span style="color:red;">[{{ error }}]</span>
+                                    {% endfor %}
+                                </p>
+                                <p>
+                                    {{ form.descripcion.label }}
+                                    {{ form.descripcion() }}
+                                    {% for error in form.descripcion.errors %}
+                                    <span style="color:red;">[{{ error }}]</span>
+                                    {% endfor %}
+                                </p>
+                                <p>{{ form.submit() }}</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

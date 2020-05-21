@@ -3,13 +3,32 @@
 {% block content %}
     {% include 'navbar.html' %}
     <div class="container" style="margin-top: 100px;">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
+                    <h5 class="card-header">Acerca de tí</h5>
                     <div class="card-body">
-                        <h5 class="card-title">Acerca de tí</h5>
                         <p class="card-text"><b>Nombre:</b> {{ current_user.username }}</p>
-                        <a href="#" class="btn btn-primary">Haz algo</a>
+                        <p class="card-text"><b>Cuenta de Logros:</b> {{ logros.count() }}</p>
+                        <p class="card-text"><b>Cuenta de Medallas:</b> {{ medallascount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h5 class="card-header">Tu mascota</h5>
+                    <div class="card-body">
+                        <figure class="figure">
+                            <img src="{{ url_for('static', filename='images/WenSinFondo.png') }}" class="figure-img img-fluid" alt="">
+                        </figure>
+                        <h5 class="card-title">Wen</h5>
                     </div>
                 </div>
             </div>
@@ -22,8 +41,8 @@
                     </div>
                     <ul class="list-group list-group-flush">
                     <li class="list-group-item"><a href="{{ url_for('nuevo_logro') }}">Agregar logro</a></li>
-                    <li class="list-group-item"><a href="#">Ver logros</a></li>
-                    <li class="list-group-item"><a href="#">Ver medallas</a></li>
+                    <li class="list-group-item"><a href="{{ url_for('logros') }}">Ver logros</a></li>
+                    <li class="list-group-item"><a href="{{ url_for('medallas') }}">Ver medallas</a></li>
                     <li class="list-group-item"><a href="#">Ver reglas</a></li>
                     <li class="list-group-item"><a href="#">Ver tabla de clasificación</a></li>
                     </ul>

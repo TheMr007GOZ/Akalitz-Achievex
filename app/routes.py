@@ -107,3 +107,7 @@ def medallas():
     medallas_disponibles = Medalla.query.all()
     medallas_conseguidas = current_user.medallas
     return render_template('medallas.html', title='Lista de medallas', medallas=medallas_conseguidas, medallas_disponibles=medallas_disponibles)
+
+@app.route('/rules', methods=['GET', 'POST'])
+def rules():
+    return render_template('rules.html', title='Reglas')

@@ -1,0 +1,32 @@
+{% extends "app.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="card mb-3 mt-5" style="max-width: 1080px;">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h5 class="card-title">Reglas</h5>
+                            <form action="" method="post">  
+                                 <p class="lead font-weight-normal">Bienvenido a la sección de reglas del Achievex.</p>
+                                 <p class="lead font-weight-normal">Al seguir éstas reglas, garantizamos un entorno sano y de buena convivencia entre usuarios y administradores.</p>
+                                 <p class="lead font-weight-normal">1. Todos los usuarios merecen respeto. </p>
+                                 <p class="lead font-weight-normal">2. No te presiones para obtener un logro, las cosas se obtienen poco a poco. Roma no se construyó en un día.</p>
+                                 <p class="lead font-weight-normal">3. El esfuerzo y dedicación son básicos para lograr lo que te propones.</p>
+                                 <p class="lead font-weight-normal">4. Si hoy no lo lograste, si diste un paso más para hacerlo. </p>
+                                 <p class="lead font-weight-normal">5. Una derrota no significa perder la guerra, mañana se libra otra batalla.</p>
+                                 <p class="lead font-weight-normal">6. Cuando obtengas un logro no te detengas, vamos por otro.</p>
+                                 <p class="lead font-weight-normal">7. La fuerza de una persona está en su capacidad de seguir adelante, Tu eres muy fuerte, no dejes que nadie te diga lo contrario.</p>
+                                 <p class="lead font-weight-normal">8. No te comas el mundo de un solo bocado, saborea cada mordida</p>
+                                 <p class="lead font-weight-normal">9. Nadie te juzga, tu decides cuando un logro está completado, todo depende de ti y de tus metas, simpre se honesto contigo mismo :3.</p>
+                                 <p class="lead font-weight-normal">10- Diviertete :3.</p>
+                                 <p>¿Estás listo? <a href="{{ url_for('register') }}">¡Ven y registrate!</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

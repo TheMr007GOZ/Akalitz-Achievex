@@ -5,6 +5,7 @@ from flask_login import current_user, login_user, logout_user
 from app.forms import LoginForm, RegistrationForm, LogroForm
 from app.models import User, Logro, Medalla
 
+import collections
 
 def add_medalla(medalla):
     current_user.medallas.append(medalla)
@@ -111,3 +112,13 @@ def medallas():
 @app.route('/rules', methods=['GET', 'POST'])
 def rules():
     return render_template('rules.html', title='Reglas')
+
+@app.route('/tablaclasificacion')
+def tabla_clasificacion():
+    users = User.query.all()
+    leaderboard = {}
+    for user in users:
+        leaderboard[user.username] = user.medallas_count()
+    sorted_as_tuple = sorted(leaderboard.items(), key=lambda kv: kv[1], reverse=True)
+    leaderboard = collections.OrderedDict(sorted_as_tuple)
+    return render_template('tablasclasificacion.html', title='Tabla de clasificación', leaderboard=leaderboard)
